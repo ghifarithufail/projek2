@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <meta charset="UTF-8">  
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> Motor Tua</title>
+        <link rel="stylesheet" th:href="@{/css/styleA.css}">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    </head>
+</head>
+<body>
+    <form method="POST" action="#" th:action="@{/about}" th:object="${about}">
+        </form>
+    <div class="banner">
+        <div class="navbar">
+            <div class="logo"><a href="home.html">MOTORTUA</a></div>
+          <ul id="MenuItems" class="menu">
+                      
+                        <li><a th:href="@{/register}">Reservation</a></li>
+                        <li><a th:href="@{/home}">Home</a></li>
+                        <li><a th:href="@{/gallery}">Gallery</a></li>
+                        <li><a th:href="@{/about}">About</a></li>
+                        <li><a th:href="@{/login}">Admin</a></li>
+                    
+                    </ul>
+        </div>
+    </div>
+
+<!--about us-->
+<div class="aboutus">
+    <h1>FOUNDERS</h1>
+    <div class="row">
+        <div class="foto">
+            <img src="../img/foto bunga copy.jpg">
+            <h2>Bunga Permata Hilias</h2>
+            <p>Hello my name is Bunga Permata Hilias, I am the one of the founder of this website, Motor Tua. Motor Tua is one of the websites that showcases classic motorbikes in the 90s, and I love classic motorcycles too.</p>
+        </div>
+        <div class="foto">
+            <img src="../img/foto gipa.jpg">
+            <h2>Ghifari Thufail Arkan</h2>
+            <p>For classic enthusiasts, especially classic motorcycles, the name is Ghifari Thufail. He is the one of the founder of this website, Motor Tua. At the same time Ghifari also collect old motorcycles, because that is one of his favorite hobby.</p>
+
+        </div>
+        
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+    <h3>MotorTua</h3>
+        <p> MotorTua merupakan sebuah website dimana anda akan bisa melihat 
+            motor-motor yang menarik dari seluruh dunia baik yang modern maupun yang klasik</p>
+    </div>
+    <div class="footer-bottom">
+        <p>copyright © 2021 MotorTua</p>
+    </div>
+</footer>
+
+</body>
+</html>

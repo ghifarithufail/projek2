@@ -92,4 +92,21 @@ public class MainController {
           rsvInterface.delete(id);
           return "redirect:/";
         }
+        
+        
+        @GetMapping("/gallery")
+        public String gallery (Model model) {
+            return "gallery";
+        }
+    
+        @GetMapping("/home")
+        public String home (Model model) {
+            return "home";
+        }
+    
+        @GetMapping("/about")
+        public String about (Model model) {
+            return "about";
+        }
+        
 }

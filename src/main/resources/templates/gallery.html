@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Motor Tua </title>
+         <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <h1>MOTORTUA</h1>
+                </div>
+                <nav>
+                    <ul id="MenuItems" class="menu">
+                      
+                        <li><a th:href="@{/register}">Reservation</a></li>
+                        <li><a th:href="@{/home}">Home</a></li>
+                        <li><a th:href="@{/gallery}">Gallery</a></li>
+                        <li><a th:href="@{/about}">About</a></li>
+                        <li><a th:href="@{/login}">Admin</a></li>
+                    
+                    </ul>
+                </nav>
+            <img src="foto/menu-icon.png" class="menu-icon" onclick="menutoggle()">
+                </div>        
+            </div>
+        <form method="POST" action="#" th:action="@{/gallery}" th:object="${gallery}">
+        </form>
+        
+        <div class="categories">
+            <div class="small-container">
+            <div class="row">
+                <div class ="col-3">
+                    <img src="../img/gambar-7.jpeg">
+                </div>
+                    <div class ="col-3">
+                        <img src="../img/gambar-8.jpeg">
+                </div>
+                <div class ="col-3">
+                <img src="../img/gambar-6.jpeg">
+                </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="small-container">
+		<h2 class="title">Our Collection</h2>
+		<div class="row">
+			<div class="col-4">
+                <a href="detail_motor-1.html">
+				<img src="../img/gambar-1.jpeg">
+                </a>
+				<h4>BMW R75</h4>
+			</div>
+
+			<div class="col-4">
+                <a href="detail_motor-2.html">
+				<img src="../img/gambar-2.jpeg">
+            </a>
+				<h4>Kawasaki w250</h4>
+			</div>
+
+			<div class="col-4">
+                <a href="detail_motor-3.html">
+				<img src="../img/gambar-3.jpeg">
+            </a>
+				<h4>Cleveland Heist</h4>
+			</div>
+
+    			<div class="col-4">
+                    <a href="detail_motor-4.html">
+				<img src="../img/gambar-4.jpeg">
+                </a>
+				<h4>Royal Enfield Classic 350</h4>
+			</div>
+
+            <div class="col-4">
+                <a href="detail_motor-5.html">
+				<img src="../img/gambar-5.jpeg">
+                </a>
+				<h4>Kawasaki W800</h4>
+			</div>
+
+                <div class="col-4">
+                    <a href="detail_motor-6.html">
+				<img src="../img/gambar-7.jpeg">
+                </a>
+				<h4>BMW r1200</h4>
+			</div>
+            </div>
+        </div>
+        
+<!------------ js for toggle menu---------->
+	<script>
+	var MenuItems = document.getElementById("MenuItems");
+	
+	MenuItems.style.maxHeight = "0px";
+	
+	function menutoggle(){
+		if(MenuItems.style.maxHeight == "0px")
+			{
+				MenuItems.style.maxHeight = "200px";
+			}
+		else
+			{
+				MenuItems.style.maxHeight = "0px";
+			}
+	}
+	</script>
+        
+	<footer>
+        <div class="footer-content">
+        <h3>MotorTua</h3>
+            <p> MotorTua merupakan sebuah website dimana anda akan bisa melihat 
+                motor-motor yang menarik dari seluruh dunia baik yang modern maupun yang klasik</p>  
+        </div>
+        <div class="footer-bottom">
+            <p>copyright © 2021 MotorTua</p>
+        </div>
+    </footer>
+
+    
+    </body>
+</html>

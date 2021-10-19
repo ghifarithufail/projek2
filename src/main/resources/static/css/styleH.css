@@ -1,0 +1,131 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 19, 2021, 11:19:48 PM
+    Author     : bungaaaph
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    width: 100%;
+    background-color: #24252A;
+    height: 80px;
+}
+.content{
+    width: 80%;
+    margin: 0 auto;
+    color: #fff;
+    padding-top: 10px;
+}
+.logo{
+    display: table;
+    float: left;
+}
+.logo h1{
+    width: 150px;
+    height: auto;
+    margin-top: 10px;
+    font-family: 'Hannotate';
+    width: auto;
+}
+.navbar{
+    float: right;
+    display: block;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 20px 20px;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar ul li ::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.8s;
+}
+.navbar ul li :hover::after{
+    width: 100%;
+}
+.banner{
+    background: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)), url(../img/bmw.jpg);
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+}
+.banner-content{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+
+.banner-content p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    font-size: 30px;
+}
+
+button{
+    width: 200px;
+    padding : 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #24252A;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+span{
+    background: #24252A;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 1s;
+}
+button:hover span{
+    width: 100%;
+}
+button:hover{
+    border: none;
+}
+.slider{
+    width: 50%;
+    height: 320px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+
+
+
+
+

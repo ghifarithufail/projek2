@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Motor Tua</title>
+        <meta charset="UTF-8">
+         <link rel="stylesheet" th:href="@{/css/styleH.css}">
+        <script src="https://kit.fontawesome.com/0b5cba3b4d.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <form method="POST" action="#" th:action="@{/home}" th:object="${home}">
+        </form>
+        
+        <div class="header">
+            <div class="content">
+                <div class="logo">
+                    <h1>MOTORTUA</h1>
+                </div>
+                 <div class="navbar">
+                    <ul>
+                        <li><a th:href="@{data_diri/creates}">Reservation</a></li>
+                        <li><a th:href="@{/home}">Home</a></li>
+                        <li><a th:href="@{/gallery}">Gallery</a></li>
+                        <li><a th:href="@{/about}">About</a></li>
+                        <li><a th:href="@{/login}">Admin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="banner">
+            <div class="container">
+                <div class="banner-content">
+                    <div class="atas">
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <!--jquery-->
+        <div class="text-box"></div>
+        <script type="text/javascript">
+        
+            $(document).ready(function(){
+            
+
+                var text = "FIND YOUR MOTORCYCLE";
+
+                $.each(text.split(""), function(key, val){
+                    $('.text-box').append('<div class="split-text">'+val+'</div>');
+
+        });
+
+        var each_text = $('.split-text')
+        $.each(each_text, function(){
+            var rand = Math.floor(Math.random()*1000)
+            $(this).css({
+                'color' : 'white',
+                'margin-top' : -rand
+            }).animate({
+                marginTop: '0px'
+            },1000);
+        
+        });
+
+        });
+        </script>
+        <style>
+            .text-box{
+                padding-left: 300px;
+                display: flex;
+                flex-wrap: wrap;
+                text-align: left;
+            }
+            .split-text{
+                padding-left: 15px;
+                font-family: 'Hannotate';
+                text-align: left;
+                font-size: 44px;
+            }
+        </style>
+                </div>
+                    <P>Explore this website to find an exceptional motorcycle that will delight your eyes.<br> as well as your favorite motorcycle.<br>click the button to find out more.</P>
+                    <div>
+                        <a th:href="@{/gallery}">
+                        <button type="button"><span></span>CLICK HERE</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </body>
+</html>
