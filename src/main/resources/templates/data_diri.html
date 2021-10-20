@@ -9,37 +9,37 @@
             <div class="container mt-5">
                 <div class="row mb-4">
                     <div class="col-12">
-                        <h5 class="mb-4">Judul Halaman</h5>
+                        <h5 class="mb-4">Data Diri</h5>
 
                         <form method="POST" action="#" th:action="@{/data_diri/store}" th:object="${data_diri}">
                             <div class="form-group">
-                                <label for="example-todo-title">Masukan Nama</label>
-                                <input th:field="*{nama}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Enter to-do title" required>
-                                <small id="emailHelp" class="form-text text-muted">Judul to-do minimal berisi 5 karakter.</small>
+                                <label for="example-todo-title">Nama</label>
+                                <input th:field="*{nama}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Masukan Nama Anda" required>
+                                <small id="emailHelp" class="form-text text-muted"></small>
                             </div>
 
                             <div class="form-group">
-                                <label for="example-todo-desc">Masukan Tanggal Lahir</label>
-                               <input th:field="*{tanggal_lahir}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Enter to-do title" required>
-                                <small id="emailHelp" class="form-text text-muted">Kamu dapat menuliskan deskripsi to-do secara detail pada kolom ini.</small>
+                                <label for="example-todo-desc">Tanggal Lahir</label>
+                               <input th:field="*{tanggal_lahir}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="yy/mm/dd" required>
+                                <small id="emailHelp" class="form-text text-muted">Masukan Tanggal Sesuai dengan Format di atas.</small>
                             </div>
                             
                             <div class="form-group">
-                                <label for="example-todo-desc">Masukan Alamat</label>
-                               <input th:field="*{alamat}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Enter to-do title" required>
-                                <small id="emailHelp" class="form-text text-muted">Kamu dapat menuliskan deskripsi to-do secara detail pada kolom ini.</small>
+                                <label for="example-todo-desc">Alamat</label>
+                               <input th:field="*{alamat}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Masukan Alamat" required>
+                                <small id="emailHelp" class="form-text text-muted">Masukan Alamat Secara Lengkap</small>
                             </div>
                             
                             <div class="form-group">
-                                <label for="example-todo-desc">Masukan Email</label>
-                              <input th:field="*{email}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Enter to-do title" required>
-                                <small id="emailHelp" class="form-text text-muted">Kamu dapat menuliskan deskripsi to-do secara detail pada kolom ini.</small>
+                                <label for="example-todo-desc">Email</label>
+                              <input th:field="*{email}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Masukan Email Anda" required>
+                                <small id="emailHelp" class="form-text text-muted">.</small>
                             </div>
                             
                             <div class="form-group">
-                                <label for="example-todo-desc">Masukan No Telpon</label>
-                              <input th:field="*{no_telp}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Enter to-do title" required>
-                                <small id="emailHelp" class="form-text text-muted">Kamu dapat menuliskan deskripsi to-do secara detail pada kolom ini.</small>
+                                <label for="example-todo-desc">No Telpon</label>
+                              <input th:field="*{no_telp}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Masukan No Telpon Anda" required>
+                                <small id="emailHelp" class="form-text text-muted">Tidak Perlu Tambahkan 0</small>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

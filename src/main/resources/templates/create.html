@@ -9,25 +9,25 @@
             <div class="container mt-5">
                 <div class="row mb-4">
                     <div class="col-12">
-                        <h5 class="mb-4">Judul Halaman</h5>
+                        <h5 class="mb-4">Reservasi</h5>
 
                         <form method="POST" action="#" th:action="@{/rsv/store}" th:object="${rsv}">
                             <div class="form-group">
-                                <label for="example-todo-title">Masukan Jumlah Tiket</label>
-                                <input th:field="*{count}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Enter to-do title" required>
-                                <small id="emailHelp" class="form-text text-muted">Judul to-do minimal berisi 5 karakter.</small>
+                                <label for="example-todo-title">Jumlah Tiket</label>
+                                <input th:field="*{count}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Masukan Jumlah Tiket" required>
+                                <small id="emailHelp" class="form-text text-muted"></small>
                             </div>
                             
                             <div class="form-group">
-                                <label for="example-todo-desc">Masukan Tanggal</label>
-                               <input th:field="*{dateR}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Enter to-do title" required>
+                                <label for="example-todo-desc">Tanggal</label>
+                               <input th:field="*{dateR}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Masukan Tanggal" required>
                                 <small id="emailHelp" class="form-text text-muted">Kamu dapat menuliskan deskripsi to-do secara detail pada kolom ini.</small>
                             </div>
                             
                             <div class="form-group">
                                 <label for="example-todo-desc">Data_id</label>
-                               <input th:field="*{data_diri}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Enter to-do title" required>
-                                <small id="emailHelp" class="form-text text-muted">Kamu dapat menuliskan deskripsi to-do secara detail pada kolom ini.</small>
+                               <input th:field="*{data_diri}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Masukan Data_id" required>
+                                <small id="emailHelp" class="form-text text-muted">Tulis angka setelah, angka terakhir yang tertera</small>
                             </div>
                             
                             <div class="form-group">
