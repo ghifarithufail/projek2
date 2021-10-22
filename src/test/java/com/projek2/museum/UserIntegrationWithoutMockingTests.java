@@ -25,12 +25,12 @@ public class UserIntegrationWithoutMockingTests {
     @Test
     public void createUserTest() throws Exception {
         User user = new User();
-        user.setEmail("nonmocking@mail.com");
-        user.setName("Non Mocking");
-        user.setPassword("123456");
+        user.setEmail("kentaro@mail.com");
+        user.setName("kentaro");
+        user.setPassword("3456");
         
         service.register(user);
-        User checkUser = service.auth("nonmocking@mail.com", "123456");
+        User checkUser = service.auth("kentaro@mail.com", "3456");
         
         Assertions.assertEquals(user.getEmail(), checkUser.getEmail());
     }
