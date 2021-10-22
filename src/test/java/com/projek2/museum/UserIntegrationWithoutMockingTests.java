@@ -19,19 +19,19 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class UserIntegrationWithoutMockingTests {
     
-    @Autowired
-    UserService service;
-    
-    @Test
-    public void createUserTest() throws Exception {
-        User user = new User();
-        user.setEmail("kentaro@mail.com");
-        user.setName("kentaro");
-        user.setPassword("3456");
-        
-        service.register(user);
-        User checkUser = service.auth("kentaro@mail.com", "3456");
-        
-        Assertions.assertEquals(user.getEmail(), checkUser.getEmail());
-    }
+//    @Autowired
+//    UserService service;
+//    
+//    @Test
+//    public void createUserTest() throws Exception {
+//        User user = new User();
+//        user.setEmail("kentaro@mail.com");
+//        user.setName("kentaro");
+//        user.setPassword("3456");
+//        
+//        service.register(user);
+//        User checkUser = service.auth("kentaro@mail.com", "3456");
+//        
+//        Assertions.assertEquals(user.getEmail(), checkUser.getEmail());
+//    }
 }

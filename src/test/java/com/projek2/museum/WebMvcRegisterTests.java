@@ -54,4 +54,66 @@ public class WebMvcRegisterTests {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(MockMvcResultMatchers.redirectedUrl("/login"));
     }
+    
+    @Test
+    public void testRegisterWithoutName() throws Exception {
+        mockMvc.perform(get("/register"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Pendaftaran")));
+
+        String email = RandomString.make(10).toLowerCase() + "@mail.com";
+        String password = RandomString.make(10).toLowerCase();
+        
+        User user = new User();
+        user.setEmail(email);
+        user.setName("");
+        user.setPassword(password);
+
+        mockMvc.perform(post("/register")
+                .flashAttr("user", user))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/register"))
+                .andExpect(MockMvcResultMatchers
+                        .flash().attributeExists("danger")
+                )
+                .andExpect(
+                        MockMvcResultMatchers
+                                .flash()
+                                .attribute("danger", "Name cannot be null!")
+                );
+    }
+    
+    @Test
+    public void testRegisterWithoutPassword() throws Exception {
+        mockMvc.perform(get("/register"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Pendaftaran")));
+
+        String email = RandomString.make(10).toLowerCase() + "@mail.com";
+        String password = RandomString.make(10).toLowerCase();
+        
+        User user = new User();
+        user.setEmail(email);
+        user.setName("Ghifari Thufail");
+        user.setPassword("345");
+
+        mockMvc.perform(post("/register")
+                .flashAttr("user", user))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/register"))
+                .andExpect(MockMvcResultMatchers
+                        .flash().attributeExists("danger")
+                )
+                .andExpect(
+                        MockMvcResultMatchers
+                                .flash()
+                                .attribute("danger", "Password cannot be null!")
+                );
+    }
+
+
+
+
+
 }  
+
