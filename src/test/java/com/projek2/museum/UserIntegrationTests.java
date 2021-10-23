@@ -31,6 +31,40 @@ public class UserIntegrationTests {
     @Mock
     UserRepository repository;
 
+     @Test
+    public void createUserTest() throws Exception {
+        User user = new User();
+        user.setEmail("test@mail.com");
+        user.setName("Test");
+        user.setPassword("test-strong-password");
+
+        when(repository.save(user)).thenReturn(user);
+        service.register(user);
+
+        when(repository.findByEmail("test@mail.com")).thenReturn(user);
+
+        User checkUser = this.repository.findByEmail("test@mail.com");
+
+        Assertions.assertEquals(user, checkUser);
+    }
+
+    @Test
+    public void createUserTestWithEmptyName() throws Exception {
+        User user = new User();
+        user.setEmail("test@mail.com");
+        user.setName("");
+        user.setPassword("test-strong-password");
+
+        when(repository.save(user)).thenReturn(user);
+        service.register(user);
+
+        when(repository.findByEmail("test@mail.com")).thenReturn(user);
+
+        User checkUser = this.repository.findByEmail("test@mail.com");
+
+        Assertions.assertEquals(user, checkUser);
+    }
+
     @Test
     public void createUserTestWithEmptyEmail() throws Exception {
         Throwable e = null;
