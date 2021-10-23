@@ -59,7 +59,7 @@ public class WebMvcRegisterTests {
     public void testRegisterWithoutName() throws Exception {
         mockMvc.perform(get("/register"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Pendaftaran")));
+                .andExpect(content().string(containsString("Email")));
 
         String email = RandomString.make(10).toLowerCase() + "@mail.com";
         String password = RandomString.make(10).toLowerCase();
@@ -87,15 +87,15 @@ public class WebMvcRegisterTests {
     public void testRegisterWithoutPassword() throws Exception {
         mockMvc.perform(get("/register"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Pendaftaran")));
+                .andExpect(content().string(containsString("Email")));
 
         String email = RandomString.make(10).toLowerCase() + "@mail.com";
         String password = RandomString.make(10).toLowerCase();
         
         User user = new User();
         user.setEmail(email);
-        user.setName("Ghifari Thufail");
-        user.setPassword("345");
+        user.setName("GTA");
+        user.setPassword("");
 
         mockMvc.perform(post("/register")
                 .flashAttr("user", user))
@@ -110,10 +110,5 @@ public class WebMvcRegisterTests {
                                 .attribute("danger", "Password cannot be null!")
                 );
     }
-
-
-
-
-
 }  
 
