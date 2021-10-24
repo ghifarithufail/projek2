@@ -20,6 +20,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
@@ -109,6 +110,40 @@ public class WebMvcRegisterTests {
                                 .flash()
                                 .attribute("danger", "Password cannot be null!")
                 );
+    }
+    @Test
+    public void testRegisterThenLogin() throws Exception {
+        mockMvc.perform(get("/register"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Pendaftaran")));
+        
+        String email = RandomString.make(10).toLowerCase() + "@mail.com";
+        String password = RandomString.make(10).toLowerCase();
+       
+        User user = new User();
+        user.setEmail(email);
+        user.setName("ghifari");
+        user.setPassword(password);
+
+        mockMvc.perform(post("/register")
+                .flashAttr("user", user))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/login"));
+
+        mockMvc.perform(get("/login"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Login")));
+
+        
+        User userLogin = new User();
+        userLogin.setEmail(email);
+        userLogin.setPassword(password);
+        
+        mockMvc.perform(post("/login")
+                .flashAttr("user", userLogin))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/"))
+                .andDo(print());
     }
 }  
 
