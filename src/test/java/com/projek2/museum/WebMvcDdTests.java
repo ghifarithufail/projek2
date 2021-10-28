@@ -7,6 +7,7 @@ package com.projek2.museum;
 
 
 import com.projek2.museum.models.Data_diri;
+import com.projek2.museum.models.Rsv;
 import com.projek2.museum.models.User;
 import java.util.HashMap;
 import net.bytebuddy.utility.RandomString;
@@ -115,13 +116,13 @@ public class WebMvcDdTests {
                 .sessionAttrs(sessionattr))
                 .andExpect(status().isOk());
         
-        mockMvc.perform(get("/data_diri/store")
+        mockMvc.perform(get("/data_diri/create")
                 .sessionAttrs(sessionattr))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Tuliskan judul")));
+                .andExpect(content().string(containsString("Data Diri")));
         
         String nama = "nama-" + RandomString.make(10).toLowerCase();
-        String tanggal_lahir = "tanggal lahir-" + RandomString.make(50).toLowerCase();
+        String tanggal_lahir = "02/01/03" ;
         String alamat = "alamat-" + RandomString.make(20).toLowerCase();
         
         
@@ -138,7 +139,7 @@ public class WebMvcDdTests {
                 .sessionAttrs(sessionattr)
                 .flashAttr("Data Diri", data_diri))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(MockMvcResultMatchers.redirectedUrl("/"))
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/rsv/creates"))
                 .andDo(print());
     }
 }

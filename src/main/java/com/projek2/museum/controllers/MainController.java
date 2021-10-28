@@ -74,7 +74,11 @@ public class MainController {
         rsvInterface.store(rsv);
         return "redirect:/";
     }
-    
+    @PostMapping("/rsv/stores")
+    public String stores(@ModelAttribute("rsv") Rsv rsv) {
+        rsvInterface.store(rsv);
+        return "redirect:/home";
+    }
        @GetMapping("/rsv/{id}/edit")
          public String edit(@PathVariable(value = "id") long id, Model model) {
         List<Tipe_tiket> tipe_tikets = tipe_tiketInterface.getAll();

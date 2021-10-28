@@ -36,8 +36,7 @@ public class Data_diri {
     @Column(name="email")
     private String email;
     
-    @Column(name="no_telp")
-    private long no_telp;
+   
 
     public void setNama(String nama) {
         this.nama = nama;
@@ -71,13 +70,6 @@ public class Data_diri {
         return email;
     }
     
-    public void setNo_telp(long no_telp) {
-        this.no_telp = no_telp;
-    }
-
-    public long getNo_telp() {
-        return no_telp;
-    }
 
     public void setId(long id) {
         this.id = id;
