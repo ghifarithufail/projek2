@@ -66,33 +66,35 @@ public class TestRsv {
 //                .andExpect(status().is3xxRedirection())
 //                .andExpect(MockMvcResultMatchers.redirectedUrl("/home"));
 //    }
-    @Test
-     public void createRsvTestWithEmptyCount() throws Exception {
-         
-        Tipe_tiket tipe =  new Tipe_tiket();
+    
+         @Test
+    public void createRsvWithEmptyDate() throws Exception {
+        Throwable e = null;
+        String message = null;
+        
+         Tipe_tiket tipe =  new Tipe_tiket();
         tipe.setId(1);
         
         Data_diri data =  new Data_diri();
         data.setId(4);
-            
-        Rsv rsv = new Rsv();
-        rsv.setCount(0);
-        rsv.setDateR("");
-        rsv.setData_diri(data);
-        rsv.setTipe_tiket(tipe);
+        
+        
+  
+        try {
+             Rsv rsv = new Rsv();
+             rsv.setCount(3);
+             rsv.setDateR("");
+             rsv.setData_diri(data);
+             rsv.setTipe_tiket(tipe);
 
-          mockMvc.perform(post("/rsv/stores")
-                .flashAttr("rsv", rsv))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(MockMvcResultMatchers.redirectedUrl("/home"))
-                .andExpect(MockMvcResultMatchers
-                        .flash().attributeExists("danger")
-                )
-                .andExpect(
-                        MockMvcResultMatchers
-                                .flash()
-                                .attribute("danger", "Date cannot be null!")
-                );
-       
+            when(repository.save(rsv))
+                    .thenThrow(new Exception("Password cannot be null"));
+            service.store(rsv);
+        } catch (Exception ex) {
+            e = ex;
+            message = ex.getMessage();
+        }
+        
+        Assertions.assertTrue(e instanceof Exception);
     }
 }

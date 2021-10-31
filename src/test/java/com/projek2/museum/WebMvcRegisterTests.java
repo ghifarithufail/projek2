@@ -37,7 +37,7 @@ public class WebMvcRegisterTests {
     private MockMvc mockMvc;
 
     @Test
-    public void testRegisterWithRightCredentials() throws Exception {
+    public void testRegister() throws Exception {
         mockMvc.perform(get("/register"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("Email")));

@@ -123,14 +123,14 @@ public class WebMvcDdTests {
         
         String nama = "nama-" + RandomString.make(10).toLowerCase();
         String tanggal_lahir = "02/01/03" ;
-        String alamat = "alamat-" + RandomString.make(20).toLowerCase();
+        
         
         
         
         Data_diri data_diri = new Data_diri();
         data_diri.setNama(nama);
         data_diri.setTanggal_lahir(tanggal_lahir);
-        data_diri.setAlamat(alamat);
+        data_diri.setAlamat("jakarta TImur");
         data_diri.setEmail(email);
         
         

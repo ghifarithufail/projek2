@@ -48,124 +48,128 @@ public class TestData_diri {
      @Autowired
     private MockMvc mockMvc;
      
-//      @Test
-//    public void testCreateData_diri() throws Exception{
-//        Data_diri data_diri = new Data_diri();
-//        data_diri.setNama("Fiqri");
-//        data_diri.setTanggal_lahir("02/01/06");
-//        data_diri.setAlamat("timur");
-//        data_diri.setEmail("fiqri@gmail.com");
-//        
-//        mockMvc.perform(post("/data_diri/store")
-//                .flashAttr("data_diri", data_diri))
-//                .andExpect(status().is3xxRedirection())
-//                .andExpect(MockMvcResultMatchers.redirectedUrl("/rsv/creates"));
-//    }
-//       @Test
-//    public void CreateData_diriWithoutAlamat() throws Exception{
-//        Data_diri data_diri = new Data_diri();
-//        data_diri.setNama("ardian");
-//        data_diri.setTanggal_lahir("02/01/06");
-//        data_diri.setAlamat("");
-//        data_diri.setEmail("fiqri@gmail.com");
-//        
-//        mockMvc.perform(post("/data_diri/store")
-//                .flashAttr("data_diri", data_diri))
-//                .andExpect(status().is3xxRedirection())
-//                .andExpect(MockMvcResultMatchers.redirectedUrl("/rsv/creates"));
-//    }
+      @Test
+    public void testCreateData_diri() throws Exception{
+        Data_diri data_diri = new Data_diri();
+        data_diri.setNama("Fiqri");
+        data_diri.setTanggal_lahir("02/01/06");
+        data_diri.setAlamat("timur");
+        data_diri.setEmail("fiqri@gmail.com");
+        
+        mockMvc.perform(post("/data_diri/store")
+                .flashAttr("data_diri", data_diri))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/rsv/creates"));
+    }
+         @Test
+    public void createData_diriWithEmptyDate() throws Exception {
+        Throwable e = null;
+        String message = null;
+        
+        try {
+             Data_diri data_diri = new Data_diri();
+            data_diri.setNama("aisyah");
+            data_diri.setTanggal_lahir("");
+            data_diri.setAlamat("jakarta");
+            data_diri.setEmail("aisyah@gmail.com");
 
-//    @Test
-//    public void CreateData_diriWithouttTanggalLahir() throws Exception{
-//        Data_diri data_diri = new Data_diri();
-//        data_diri.setNama("merry");
-//        data_diri.setTanggal_lahir("03/02/13");
-//        data_diri.setAlamat("jakarta");
-//        data_diri.setEmail("");
-//        
-//        mockMvc.perform(post("/data_diri/store")
-//                .flashAttr("data_diri", data_diri))
-//                .andExpect(status().is3xxRedirection())
-//                .andExpect(MockMvcResultMatchers.redirectedUrl("/rsv/creates"));
-//}
-//    
-//        @Test
-//    public void CreateData_diriWithoutNama() throws Exception{
-//        Data_diri data_diri = new Data_diri();
-//        data_diri.setNama("");
-//        data_diri.setTanggal_lahir("02/07/01");
-//        data_diri.setAlamat("jakarta");
-//        data_diri.setEmail("Test@gmail.com");
-//        
-//        mockMvc.perform(post("/data_diri/store")
-//                .flashAttr("data_diri", data_diri))
-//                .andExpect(status().is3xxRedirection())
-//                .andExpect(MockMvcResultMatchers.redirectedUrl("/rsv/creates"));
-//}
-//     @Test
-//    public void createDat_diriTestWithEmptyNama() throws Exception {
-//     Throwable e = null;
-//        String message = null;
-//  
-//        try {
-//            Data_diri data_diri = new Data_diri();
-//            data_diri.setNama("");
-//            data_diri.setTanggal_lahir("02/07/01");
-//            data_diri.setAlamat("Bekasi");
-//            data_diri.setEmail("g@gmail.com");
-//
-//            when(repository.save(data_diri))
-//                    .thenThrow(new Exception("please fill out this field"));
-//            service.store(data_diri);
-//        } catch (Exception ex) {
-//            e = ex;
-//            message = ex.getMessage();
-//        }
-//        
-//        Assertions.assertTrue(e instanceof Exception);
-//    }
-//     @Test
-//     public void testData_diriThenReservasi() throws Exception {
-//        mockMvc.perform(get("/data_diri/create"))
-//                .andExpect(status().isOk())
-//                .andExpect(content().string(containsString("Data Diri")));
-//        
-//        
-//       
-//        Data_diri data_diri = new Data_diri();
-//        data_diri.setNama("Vania");
-//        data_diri.setTanggal_lahir("01/12/31");
-//        data_diri.setAlamat("Cibubur");
-//        data_diri.setEmail("Vania@gmail.com");
-//
-//        mockMvc.perform(post("/data_diri/store")
-//                .flashAttr("data_diri",data_diri))
-//                .andExpect(status().is3xxRedirection())
-//                .andExpect(MockMvcResultMatchers.redirectedUrl("/rsv/creates"));
-//
-//        mockMvc.perform(get("/rsv/creates"))
-//                .andExpect(status().isOk())
-//                .andExpect(content().string(containsString("Reservasi")));
-//
-//        
-//        Tipe_tiket tipe =  new Tipe_tiket();
-//        tipe.setId(1);
-//        
-//        Data_diri data =  new Data_diri();
-//        data.setId(4);
-//         
-//        Rsv rsv = new Rsv();
-//        rsv.setCount(3);
-//        rsv.setDateR("12/03/04");
-//        rsv.setData_diri(data);
-//        rsv.setTipe_tiket(tipe);
-//        
-//        mockMvc.perform(post("/rsv/stores")
-//                .flashAttr("rsv", rsv))
-//                .andExpect(status().is3xxRedirection())
-//                .andExpect(MockMvcResultMatchers.redirectedUrl("/home"))
-//                .andDo(print());
-//    }
-     
-     
+            when(repository.save(data_diri))
+                    .thenThrow(new Exception("please fill out this field"));
+            service.store(data_diri);
+        } catch (Exception ex) {
+            e = ex;
+            message = ex.getMessage();
+        }
+        
+        Assertions.assertTrue(e instanceof Exception);
+    }
+
+    @Test
+    public void CreateData_diriWithoutEmail() throws Exception{
+         Throwable e = null;
+        String message = null;
+        
+        try {
+             Data_diri data_diri = new Data_diri();
+            data_diri.setNama("aiga");
+            data_diri.setTanggal_lahir("03/02/13");
+            data_diri.setAlamat("jakarta");
+            data_diri.setEmail("");
+
+            when(repository.save(data_diri))
+                    .thenThrow(new Exception("please fill out this field"));
+            service.store(data_diri);
+        } catch (Exception ex) {
+            e = ex;
+            message = ex.getMessage();
+        }
+        
+        Assertions.assertTrue(e instanceof Exception);
+}
+    
+        @Test
+    public void CreateData_diriWithoutNama() throws Exception{
+        Throwable e = null;
+        String message = null;
+        
+        try {
+             Data_diri data_diri = new Data_diri();
+            data_diri.setNama("");
+            data_diri.setTanggal_lahir("03/02/13");
+            data_diri.setAlamat("jakarta");
+            data_diri.setEmail("test@gamil.com");
+
+            when(repository.save(data_diri))
+                    .thenThrow(new Exception("please fill out this field"));
+            service.store(data_diri);
+        } catch (Exception ex) {
+            e = ex;
+            message = ex.getMessage();
+        }
+        
+        Assertions.assertTrue(e instanceof Exception);
+}
+    
+     @Test
+     public void testData_diriThenReservasi() throws Exception {
+        mockMvc.perform(get("/data_diri/create"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Data Diri")));
+        
+        
+       
+        Data_diri data_diri = new Data_diri();
+        data_diri.setNama("Vania");
+        data_diri.setTanggal_lahir("01/12/31");
+        data_diri.setAlamat("Cibubur");
+        data_diri.setEmail("Vania@gmail.com");
+
+        mockMvc.perform(post("/data_diri/store")
+                .flashAttr("data_diri",data_diri))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/rsv/creates"));
+
+        mockMvc.perform(get("/rsv/creates"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Reservasi")));
+
+        
+        Tipe_tiket tipe =  new Tipe_tiket();
+        tipe.setId(1);
+        
+        Data_diri data =  new Data_diri();
+        data.setId(4);
+         
+        Rsv rsv = new Rsv();
+        rsv.setCount(3);
+        rsv.setDateR("12/03/04");
+        rsv.setData_diri(data);
+        rsv.setTipe_tiket(tipe);
+        
+        mockMvc.perform(post("/rsv/stores")
+                .flashAttr("rsv", rsv))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/home"))
+                .andDo(print());
+    }
 }
