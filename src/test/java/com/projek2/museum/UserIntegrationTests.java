@@ -34,9 +34,9 @@ public class UserIntegrationTests {
     @Test
     public void createUserTest() throws Exception {
         User user = new User();
-        user.setEmail("test@mail.com");
-        user.setName("Test");
-        user.setPassword("test-strong-password");
+        user.setEmail("bunga@mail.com");
+        user.setName("Bunga");
+        user.setPassword("password");
 
         when(repository.save(user)).thenReturn(user);
         service.register(user);
@@ -51,9 +51,9 @@ public class UserIntegrationTests {
     @Test
     public void createUserTestWithEmptyName() throws Exception {
         User user = new User();
-        user.setEmail("test@mail.com");
+        user.setEmail("ghifari@mail.com");
         user.setName("");
-        user.setPassword("test-strong-password");
+        user.setPassword("password");
 
         when(repository.save(user)).thenReturn(user);
         service.register(user);
@@ -73,11 +73,32 @@ public class UserIntegrationTests {
         try {
             User user = new User();
             user.setEmail("");
-            user.setName("Test");
-            user.setPassword("test-strong-password");
+            user.setName("Ghifari");
+            user.setPassword("password");
 
             when(repository.save(user))
                     .thenThrow(new Exception("Email cannot be null"));
+            service.register(user);
+        } catch (Exception ex) {
+            e = ex;
+            message = ex.getMessage();
+        }
+        
+        Assertions.assertTrue(e instanceof Exception);
+    }
+    @Test
+    public void createUserTestWithEmptyPassword() throws Exception {
+        Throwable e = null;
+        String message = null;
+  
+        try {
+            User user = new User();
+            user.setEmail("Tester@gmail.com");
+            user.setName("bunga");
+            user.setPassword("");
+
+            when(repository.save(user))
+                    .thenThrow(new Exception("Password cannot be null"));
             service.register(user);
         } catch (Exception ex) {
             e = ex;
