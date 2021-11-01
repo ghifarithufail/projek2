@@ -46,26 +46,26 @@ public class TestRsv {
         @Mock
         RsvRepository repository; 
          
-//         @Test
-//    public void testCreateRsv() throws Exception{
-//        
-//        Tipe_tiket tipe =  new Tipe_tiket();
-//        tipe.setId(1);
-//        
-//        Data_diri data =  new Data_diri();
-//        data.setId(4);
-//        
-//        Rsv rsv = new Rsv();
-//        rsv.setCount(3);
-//        rsv.setDateR("02/01/06");
-//        rsv.setData_diri(data);
-//        rsv.setTipe_tiket(tipe);
-//        
-//        mockMvc.perform(post("/rsv/stores")
-//                .flashAttr("rsv", rsv))
-//                .andExpect(status().is3xxRedirection())
-//                .andExpect(MockMvcResultMatchers.redirectedUrl("/home"));
-//    }
+         @Test
+    public void testCreateRsv() throws Exception{
+        
+        Tipe_tiket tipe =  new Tipe_tiket();
+        tipe.setId(1);
+        
+        Data_diri data =  new Data_diri();
+        data.setId(4);
+        
+        Rsv rsv = new Rsv();
+        rsv.setCount(3);
+        rsv.setDateR("02/01/06");
+        rsv.setData_diri(data);
+        rsv.setTipe_tiket(tipe);
+        
+        mockMvc.perform(post("/rsv/stores")
+                .flashAttr("rsv", rsv))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/home"));
+    }
     
          @Test
     public void createRsvWithEmptyDate() throws Exception {
